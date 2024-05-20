@@ -1,0 +1,23 @@
+2024-05-19 22:48:45.553093 - Starting bot...
+2024-05-19 22:48:56.038256 - User (6436003558) sent: 8F83
+2024-05-19 22:48:56.038825 - 8F83 logged in
+2024-05-19 22:48:57.665758 - 8F83 failed to register taxi
+2024-05-19 22:50:23.308362 - Starting bot...
+2024-05-19 22:52:30.910322 - User (6436003558) sent: 8F83
+2024-05-19 22:52:30.910926 - 8F83 logged in
+2024-05-19 22:52:32.131448 - 8F83 failed to register taxi
+2024-05-19 22:57:33.006800 - Starting bot...
+2024-05-19 23:00:05.859581 - User (6436003558) sent: 8F83
+2024-05-19 23:00:05.861136 - 8F83 logged in
+2024-05-19 23:00:07.076321 - 8F83 failed to register taxi
+2024-05-19 23:00:55.896998 - User (6436003558) sent: ())
+2024-05-19 23:02:01.876142 - User (6436003558) sent: 8F83
+2024-05-19 23:02:01.876529 - 8F83 logged in
+2024-05-19 23:02:03.157830 - 8F83 failed to register taxi
+2024-05-19 23:04:18.749000 - Starting bot...
+2024-05-19 23:04:28.195442 - User (6436003558) sent: 8F83
+2024-05-19 23:04:28.195784 - 8F83 logged in
+2024-05-19 23:04:29.932914 - Update Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Navraj', id=6436003558, last_name='Singh', type=<ChatType.PRIVATE>), date=datetime.datetime(2024, 5, 20, 3, 4, 28, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='Navraj', id=6436003558, is_bot=False, language_code='en', last_name='Singh'), group_chat_created=False, message_id=126, supergroup_chat_created=False, text='8F83'), update_id=175031845) caused error object NoneType can't be used in 'await' expression
+2024-05-19 23:04:57.976403 - Starting bot...
+2024-05-19 23:05:02.329962 - User (6436003558) sent: 8F83
+2024-05-19 23:05:02.330927 - 8F83 logged in
