@@ -87,7 +87,7 @@ def register_taxi():
                     if response.json()[0:4] == 'Wait':
                         return False
                 except:
-                    pass
+                    continue
 
         # Create multiple threads to spam requests
         threads = []
@@ -102,6 +102,30 @@ def register_taxi():
             t.join()
     return spam_requests()
 
+def check_status():
+    url = 'https://gtmsapi.panynj.gov/txd-prod-mobile/v1/api/virtualQueues/register'
+    headers = {
+        'Host': 'gtmsapi.panynj.gov',
+        'User-Agent': 'PANYNJ%20Virtual%20Taxi%20Dispatch/3 CFNetwork/1410.0.3 Darwin/22.6.0',
+        'Connection': 'keep-alive',
+        'SessionHashCode': SESSION_HASH,
+        'Accept': 'application/json',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Authorization': AUTHORIZATION,
+        'Ocp-Apim-Subscription-Key': 'c622816b255045bc85f7e68dbc33c00e',
+        'Content-Type': 'application/json-patch+json'
+    }
+    data = {
+        "airportAreaCode": "J_H"
+    }
+    response = requests.post(url, headers=headers, json=data)
+    response = response.json()
+
+    try:
+        if response[0:4] == 'Wait':
+            return response
+    except:
+        return "Log into app, thank you for using our service!"
 
 
 AUTHORIZATION = 'Joe mama'
@@ -134,5 +158,5 @@ def main(currMedallion):
 
     SESSION_HASH = get_session_hash()
     put_location()
-    if register_taxi():
-        return True
+    register_taxi()
+    return check_status()

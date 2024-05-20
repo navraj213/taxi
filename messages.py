@@ -49,8 +49,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await update.message.reply_text(f'Welcome {text}!')
     await update.message.reply_text('Please wait, your number is being entered...')
-    register(text)
-    await update.message.reply_text('Log into your app now.')
+    await update.message.reply_text(register(text))
     
         
 #Error
