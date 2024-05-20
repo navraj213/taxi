@@ -128,6 +128,8 @@ def check_status():
     try:
         if len(response)>1:
             return response + ". Try again in a few minutes."
+        else:
+            return "Success! Log into app now."
     except:
         return "Log into app, thank you for using our service!"
 
