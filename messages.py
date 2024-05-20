@@ -1,3 +1,4 @@
+from requests import JSONDecodeError
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from datetime import datetime
@@ -49,7 +50,11 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await update.message.reply_text(f'Welcome {text}!')
     await update.message.reply_text('Please wait, your number is being entered...')
-    await update.message.reply_text(register(text))
+    try:
+        await update.message.reply_text(register(text))
+    except JSONDecodeError as e:
+        await update.message.reply_text('Successfully registered!')
+        log(f'Registered: {text}')
     
         
 #Error
@@ -73,4 +78,4 @@ if __name__ == '__main__':
 
     print('Polling...')
 
-    app.run_polling(poll_interval=15)
+    app.run_polling(poll_interval=3)
