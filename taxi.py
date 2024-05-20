@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 import requests
 import threading
 
@@ -83,6 +84,8 @@ def register_taxi():
                 response = requests.post(url, headers=headers, json=data)
                 if response.status_code == 200:
                     return True
+                elif datetime.now() - timeStarted > timedelta(minutes=5):
+                    return False
                 try:
                     if response.json()[0:4] == 'Wait':
                         return False
@@ -100,6 +103,7 @@ def register_taxi():
         # Wait for all threads to finish
         for t in threads:
             t.join()
+    timeStarted = datetime.now()
     return spam_requests()
 
 def check_status():
@@ -122,8 +126,8 @@ def check_status():
     response = response.json()
 
     try:
-        if response[0:4] == 'Wait':
-            return response
+        if len(response)>1:
+            return response + ". Try again in a few minutes."
     except:
         return "Log into app, thank you for using our service!"
 
