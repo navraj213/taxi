@@ -32,7 +32,7 @@ def log(event: str):
 
 # Responses
 def is_valid_user(medallion: str) -> str:
-    registered_users = ['6d24', '1t65', '7y91', '8f83']
+    registered_users = ['6d24', '1t65', '7y91', '8f83', '6p23']
     if medallion.lower() in registered_users:
         log(f'{medallion} logged in')
         return True
