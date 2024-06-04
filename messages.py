@@ -7,7 +7,9 @@ import taxi
 #Constants
 TOKEN = '7011760420:AAFvkit_3t8XZCispRt3mIkQHwrd2MG92xk'
 BOT_USERNAME = '@TaxiNumberBot'
-LOG_FILE = 'logs.txt'
+LOG_FILE = 'log/logs.txt'
+LOGIN_FILE = 'log/logins.txt'
+ERROR_FILE = 'log/errors.txt'
 
 #Commands
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -21,6 +23,12 @@ def log(event: str):
     currTime = datetime.now()
     with open(LOG_FILE, 'a') as f:
         f.write(f'{currTime} - {event}\n')
+    if event.startswith('Update'):
+        with open(ERROR_FILE, 'a') as f:
+            f.write(f'{currTime} - {event}\n')
+    elif event.endswith('logged in') or event.startswith('Registered:'):
+        with open(LOGIN_FILE, 'a') as f:
+            f.write(f'{currTime} - {event}\n')
 
 # Responses
 def is_valid_user(medallion: str) -> str:
