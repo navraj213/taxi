@@ -23,7 +23,9 @@ def log(event: str):
     currTime = datetime.now()
     with open(LOG_FILE, 'a') as f:
         f.write(f'{currTime} - {event}\n')
-    if event.startswith('Update'):
+    if event.startswith('Update None'):
+        return
+    elif event.startswith('Update'):
         with open(ERROR_FILE, 'a') as f:
             f.write(f'{currTime} - {event}\n')
     elif event.endswith('logged in') or event.startswith('Registered:'):
