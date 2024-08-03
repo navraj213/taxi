@@ -36,8 +36,8 @@ def get_session_hash():
         "userName": EMAIL
     }
     response = requests.post(url, headers=headers, json=data)
-    if response.status_code != 200:
-        return get_session_hash()
+#    if response.status_code != 200:
+#        return get_session_hash()
     session_hash = response.json()['sessionHash']
     return session_hash
 
